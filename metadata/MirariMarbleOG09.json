@@ -1,0 +1,23 @@
+{
+	"name": "Mirari Marble OG09",
+	"token_id": 9,
+	"image": "ar://TmClKP4uwpyFbtcEf06La0xgT_sh7u_jxaC-xBqXj-c/MM_OG09.mp4",
+	"external_url": "https://mirarimarble.com/",
+	"description": "Enter The Mirari Sphere",
+	"arweave_gateway": "https://arweave.net/TmClKP4uwpyFbtcEf06La0xgT_sh7u_jxaC-xBqXj-c/MM_OG09.mp4",
+	"animation_url": "ar://TmClKP4uwpyFbtcEf06La0xgT_sh7u_jxaC-xBqXj-c/MM_OG09.mp4",
+	"attributes": [
+		{
+			"trait_type": "Type",
+			"value": "Static"
+		},
+		{
+			"trait_type": "Family",
+			"value": "OG0"
+		},
+		{
+			"trait_type": "Pattern",
+			"value": "Quatrefoil"
+		}
+	]
+}

@@ -2,26 +2,37 @@ from brownie import MiraiMarble
 from brownie import accounts, network, config
 
 
+MIRARI_ADDR = '0xbb884cfc40c40a7bafc12f54d4d511406f3969cf'
+
 LOCAL_ENVS = ['development', 'ganache']
 
-URI_0 = "ar://j-vjjM_X0Gfx9dnbca70iR4wALflrD_mAUK67uFKlTs"
+META_BASE_URI = 'ar://8avbVHlVIp5iS2pbCvDFhIZiSRPJnA4rt0YWINU0Jvo/'
+META_BASE_NAME = 'MirariMarbleOG0'
+ITERATIONS = 10
 
-def get_acc():
-    if network.show_active() in LOCAL_ENVS:
-        return accounts[0]
-    return accounts.add(config['wallets']['from_key'])
+get_acc = lambda: accounts[0] if (
+    network.show_active() in LOCAL_ENVS
+) else accounts.add(config['wallets']['from_key'])
+
+from_me = {'from': get_acc()}
+
+should_verify = config['networks'][network.show_active()].get('verify', False)
+
+deploy_token = lambda: MiraiMarble.deploy(from_me, publish_source = should_verify)
+
+def mint_tokens_with(mint_function):
+    for i in range(ITERATIONS):
+        mint_function(
+            MIRARI_ADDR,
+            f'{META_BASE_URI}{META_BASE_NAME}{i}.json',
+            from_me
+        ).wait(1)
+    
+
 
 def deploy():
-    acc = get_acc()
-    token = MiraiMarble.deploy({'from': acc})
-    print(f'You have: {token.balanceOf(acc)} tokens')
-    tx = token.mintNewMarble(
-        acc,
-        URI_0,
-        {'from': acc}
-    )
-    tx.wait(1)
-    print(f'You have: {token.balanceOf(acc)} tokens')
+    mint_tokens_with(deploy_token().mintNewMarble)
+    MiraiMarble[-1].transferOwnership(MIRARI_ADDR, from_me)
 
 def main():
     deploy()
