@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: VPL
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 /*
@@ -41,7 +41,6 @@ pragma solidity ^0.8.0;
        %%%%%%%%%%%%%%%%%%%%%%%%%%%                                 %%%%%%%%%%%%%%%%%%%%%            
 */
 
-
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
@@ -55,8 +54,6 @@ contract MiraiMarble is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
 
 	constructor() public ERC721 ("Mirari Marble", "MM") {}
 	
-	// use ERC721A in the future for multiple minting
-	// Doeas the supply automatically updates?
     function mintNewMarble(address to, string memory uri) public onlyOwner {
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
@@ -64,7 +61,6 @@ contract MiraiMarble is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         _setTokenURI(tokenId, uri);
     }
 
-    // The following functions are overrides required by Solidity.
     function _beforeTokenTransfer(address from, address to, uint256 tokenId)
         internal
         override(ERC721, ERC721Enumerable)
