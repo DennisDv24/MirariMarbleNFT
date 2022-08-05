@@ -1,6 +1,7 @@
 from brownie import MiraiMarble
 from brownie import accounts, network, config
 
+# DEPRECATED
 
 MIRARI_ADDR = '0xbb884cfc40c40a7bafc12f54d4d511406f3969cf'
 

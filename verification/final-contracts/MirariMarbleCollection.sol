@@ -41,18 +41,20 @@ pragma solidity ^0.8.0;
        %%%%%%%%%%%%%%%%%%%%%%%%%%%                                 %%%%%%%%%%%%%%%%%%%%%            
 */
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
+import "ERC721.sol";
+import "ERC721Enumerable.sol";
+import "ERC721URIStorage.sol";
+import "Ownable.sol";
+import "Counters.sol";
 
-contract MiraiMarble is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
+contract MirariMarbleCollection is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
 
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIdCounter;
 
-	constructor() public ERC721 ("Mirari Marble", "MM") {}
+	constructor(
+		string memory name, string memory symbol
+	) public ERC721 (name, symbol) {}
 	
     function mintNewMarble(address to, string memory uri) public onlyOwner {
         uint256 tokenId = _tokenIdCounter.current();
