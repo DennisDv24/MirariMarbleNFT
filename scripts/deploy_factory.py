@@ -15,8 +15,7 @@ MIRARI_ADDR = '0xbb884cfc40c40a7bafc12f54d4d511406f3969cf'
 should_verify = config['networks'][network.show_active()].get('verify', False)
 
 
-# Deploy factory from dev-acc, transferOwnership to mirari
-def main():
+def local_deploy():
     factory = MarbleFactory.deploy(
         {'from': get_acc('test1')},
          publish_source=should_verify
@@ -24,3 +23,30 @@ def main():
     input('Factory deployed, continue?')
     tx = factory.transferOwnership(get_acc(), {'from': get_acc('test1')})
     tx.wait(1)
+    tx = factory.deployMainCollection({'from': get_acc()})
+    tx.wait(1)
+
+
+def deploy_to_testnet():
+    factory = MarbleFactory.deploy(
+        {'from': get_acc('test1')},
+         publish_source=should_verify
+    )
+    input('Factory deployed, continue?')
+    tx = factory.transferOwnership(get_acc(), {'from': get_acc('test1')})
+    tx.wait(1)
+
+# Deploy factory from dev-acc, transferOwnership to mirari
+def deploy_to_production():
+    factory = MarbleFactory.deploy(
+        {'from': get_acc()},
+         publish_source=should_verify
+    )
+    input('Factory deployed, continue?')
+    tx = factory.transferOwnership(MIRARI_ADDR, {'from': get_acc()})
+    tx.wait(1)
+
+
+def main():
+    #deploy_to_testnet()
+    deploy_to_production()

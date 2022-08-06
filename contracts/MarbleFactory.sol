@@ -57,7 +57,9 @@ contract MarbleFactory is Ownable {
 		onlyOwner 
 		returns (address) 
 	{
-		return address(new MirariMarbleCollection(name, symbol));
+		MirariMarbleCollection collection = new MirariMarbleCollection(name, symbol);
+		collection.transferOwnership(msg.sender);
+		return address(collection);
 	}
 
 }
