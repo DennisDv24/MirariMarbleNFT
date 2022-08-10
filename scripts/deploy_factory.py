@@ -26,14 +26,16 @@ def local_deploy():
     tx = factory.deployMainCollection({'from': get_acc()})
     tx.wait(1)
 
+DEPLOYER_TEST_ADDR = get_acc('test1')
+CLIENT_TEST_ADDR = get_acc()
 
 def deploy_to_testnet():
     factory = MarbleFactory.deploy(
-        {'from': get_acc('test1')},
+        {'from': DEPLOYER_TEST_ADDR},
          publish_source=should_verify
     )
     input('Factory deployed, continue?')
-    tx = factory.transferOwnership(get_acc(), {'from': get_acc('test1')})
+    tx = factory.transferOwnership(CLIENT_TEST_ADDR, {'from': DEPLOYER_TEST_ADDR})
     tx.wait(1)
 
 # Deploy factory from dev-acc, transferOwnership to mirari
@@ -48,5 +50,6 @@ def deploy_to_production():
 
 
 def main():
-    #deploy_to_testnet()
-    deploy_to_production()
+    deploy_to_testnet()
+    #deploy_to_production()
+
