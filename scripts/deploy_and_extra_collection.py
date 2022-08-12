@@ -1,6 +1,6 @@
 from brownie import MarbleFactory, MirariMarbleCollection
 from brownie import network, config, accounts
-from scripts.deploy_factory import DEPLOYER_TEST_ADDR, CLIENT_TEST_ADDR
+from scripts.deploy_factory import DEPLOYER_TEST_ADDR, CLIENT_TEST_ADDR, MIRARI_ADDR
 from scripts.deploy_factory import deploy_to_testnet, get_acc
 
 META_ARWEAVE_MANIFEST_HASH = 'vYYPN3MKBa7oojy7chE0AcIv0IkNJQ2hvlqLHf_aHwk'
@@ -39,7 +39,19 @@ def deploy_to_testnet_full_test():
 
 
 def mint_extra_tokens_in_mainnet():
-    pass
+    collection = MirariMarbleCollection[-1]
+    print('Using this token:')
+    print(collection)
+    input('Is it correct?')
+    for i in range(TOTAL_TOKENS):
+        collection.mintNewMarble(
+            MIRARI_ADDR, get_uri(i), {'from': get_acc()}
+        )
+    input('New tokens minted, continue?')
+    tx = collection.transferOwnership(
+        MIRARI_ADDR, {'from': get_acc()}
+    )
+    tx.wait(1)
 
 def main():
     mint_extra_tokens_in_mainnet()
