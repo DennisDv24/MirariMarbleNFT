@@ -1,0 +1,25 @@
+{
+	"name": "Mirari Marble 12YOWCC",
+	"token_id": 17,
+	"image": "ar://sbBzz_NMQsAoiug8k5DT6gy4rLDsF1pfFs-uPs9_Sxc/MMHonorary07.mp4",
+	"external_url": "https://mirarimarble.com/",
+	"description": "No one man should have all that power",
+	"arweave_gateway": "https://arweave.net/sbBzz_NMQsAoiug8k5DT6gy4rLDsF1pfFs-uPs9_Sxc/MMHonorary07.mp4",
+	"animation_url": "ar://sbBzz_NMQsAoiug8k5DT6gy4rLDsF1pfFs-uPs9_Sxc/MMHonorary07.mp4",
+	"attributes": [
+		{
+			"trait_type": "Type",
+			"value": "Static"
+		},
+		{
+			"trait_type": "Family",
+			"value": "Honorary"
+		},
+		{
+			"trait_type": "Pattern",
+			"value": "Mom's Card"
+		}
+	]
+}
+
+
