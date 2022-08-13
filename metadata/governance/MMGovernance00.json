@@ -1,0 +1,25 @@
+{
+	"name": "Mirari Marble Talkless",
+	"token_id": 22,
+	"image": "ar://FJW_fni6KddHsaHARqa0vu8vEGXWTsb1fRQ3LaymJKk",
+	"external_url": "https://mirarimarble.com/",
+	"description": "The dissatisfaction one has in their own skin may be seen as a negative - but it's those who are uncomfortable with themselves who have the most potential for growth.",
+	"arweave_gateway": "https://arweave.net/FJW_fni6KddHsaHARqa0vu8vEGXWTsb1fRQ3LaymJKk",
+	"animation_url": "ar://FJW_fni6KddHsaHARqa0vu8vEGXWTsb1fRQ3LaymJKk",
+	"attributes": [
+		{
+			"trait_type": "Type",
+			"value": "Static"
+		},
+		{
+			"trait_type": "Family",
+			"value": "Governance"
+		},
+		{
+			"trait_type": "Pattern",
+			"value": "UNCOMFORTABLE"
+		}
+	]
+}
+
+

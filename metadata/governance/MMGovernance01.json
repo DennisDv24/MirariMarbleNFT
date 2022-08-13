@@ -1,0 +1,25 @@
+{
+	"name": "Mirari Marble Milangel",
+	"token_id": 23,
+	"image": "ar://bSe5egLwXW7OIxA1NnWOGR_xudjQvxEmq_SVG0HUk6Q",
+	"external_url": "https://mirarimarble.com/",
+	"description": "Losers like to see winners lose, Winners like to see losers win",
+	"arweave_gateway": "https://arweave.net/bSe5egLwXW7OIxA1NnWOGR_xudjQvxEmq_SVG0HUk6Q",
+	"animation_url": "ar://bSe5egLwXW7OIxA1NnWOGR_xudjQvxEmq_SVG0HUk6Q",
+	"attributes": [
+		{
+			"trait_type": "Type",
+			"value": "Static"
+		},
+		{
+			"trait_type": "Family",
+			"value": "Governance"
+		},
+		{
+			"trait_type": "Pattern",
+			"value": "Milarble"
+		}
+	]
+}
+
+
